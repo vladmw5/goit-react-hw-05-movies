@@ -1,8 +1,9 @@
-import { Fragment } from 'react';
+import { Fragment, Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 import s from './SharedLayout.module.css';
 import routes from 'service/routes';
+import Loader from 'components/Loader';
 
 const SharedLayout = () => {
   return (
@@ -23,7 +24,9 @@ const SharedLayout = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </Fragment>
   );
 };

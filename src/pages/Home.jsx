@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import TrendingMovieList from 'components/TrendingMovieList';
+import MovieList from 'components/MovieList';
 import Loader from 'components/Loader';
 import api from '../service/movieAPI';
 
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <main>
       <h1>Trending movies of the day</h1>
-      {isLoading ? <Loader /> : <TrendingMovieList movies={movies} />}
+      {isLoading ? <Loader /> : <MovieList movies={movies} />}
     </main>
   );
 };

@@ -14,52 +14,51 @@ const queryStrings = {
 export async function fetchTrending() {
   const response = await fetch(queryStrings.trending());
   if (!response.ok) {
-    throw new Error('Fetch Trending Movies Error: ' + response.status);
+    return Promise.reject('Fetch Trending Movies Error: ' + response.status);
   }
   return response.json();
 }
 
 export async function fetchByQuery(query, page = 1) {
   if (!query) {
-    throw new Error('Fetch By Query: cannot make an empty query');
+    return Promise.reject('Fetch By Query: cannot make an empty query');
   }
   const response = await fetch(queryStrings.search(query, page));
   if (!response.ok) {
-    throw new Error('Fetch By Query Error: ' + response.status);
+    return Promise.reject('Fetch By Query Error: ' + response.status);
   }
   return response.json();
 }
 
 export async function fetchMovieDetails(id) {
   if (!id) {
-    throw new Error('Fetch Movie Details: cannot query by this id ' + id);
+    return Promise.reject('Fetch Movie Details: cannot query by this id ' + id);
   }
-  console.log(queryStrings.details(id));
   const response = await fetch(queryStrings.details(id));
   if (!response.ok) {
-    throw new Error('Fetch Movie Details: error: ' + response.status);
+    return Promise.reject('Fetch Movie Details: error: ' + response.status);
   }
   return response.json();
 }
 
 export async function fetchMovieCredits(id) {
   if (!id) {
-    throw new Error('Fetch Movie Credits: cannot query by this id ' + id);
+    return Promise.reject('Fetch Movie Credits: cannot query by this id ' + id);
   }
   const response = await fetch(queryStrings.credits(id));
   if (!response.ok) {
-    throw new Error('Fetch Movie Credits: error: ' + response.status);
+    return Promise.reject('Fetch Movie Credits: error: ' + response.status);
   }
   return response.json();
 }
 
 export async function fetchMovieReviews(id) {
   if (!id) {
-    throw new Error('Fetch Movie Reviews: cannot query by this id ' + id);
+    return Promise.reject('Fetch Movie Reviews: cannot query by this id ' + id);
   }
   const response = await fetch(queryStrings.reviews(id));
   if (!response.ok) {
-    throw new Error('Fetch Movie Reviews: error: ' + response.status);
+    return Promise.reject('Fetch Movie Reviews: error: ' + response.status);
   }
   return response.json();
 }
