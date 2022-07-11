@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/185.35e1e4f5.chunk.js","mappings":"6IAIA,UAJgB,WACd,MAAM","sources":["pages/Credits.jsx"],"sourcesContent":["const Credits = () => {\n  return ``;\n};\n\nexport default Credits;\n"],"names":[],"sourceRoot":""}
